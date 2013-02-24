@@ -38,7 +38,8 @@ class AppController extends Controller {
                 'Session',
         'Auth' => array(
             'loginRedirect' => array('controller' => 'quotes', 'action' => 'index'),
-            'logoutRedirect' => array('controller' => 'quotes', 'action' =>  'index')
+            'logoutRedirect' => array('controller' => 'quotes', 'action' =>  'index'),
+            'authorize' => array('Controller')
         )
         );
 
@@ -53,10 +54,26 @@ class AppController extends Controller {
                 	$this->set('me',$this->Auth->user());
                 }
                 else{
-                	$this->set('me',array('id'=>0,'username'=>'not connected'));
+                	$this->set('me',array('id'=>0,'username'=>'visiteur'));
                 }
 
         }
+
+/**
+* isAuthorized
+*
+* @autho gaspard
+*
+*/
+
+	public function isAuthorized($user){
+
+		if(isset($user['group_id']) && $user['group_id']==1){
+			return true;
+		}
+
+		return false;
+	}
 
 
 

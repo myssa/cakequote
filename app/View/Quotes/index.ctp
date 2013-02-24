@@ -1,8 +1,9 @@
 <div class="quotes index">
 	<h2><?php echo __('Quotes'); ?></h2>
+	<div class="quotes_viewpers">
 	<table cellpadding="0" cellspacing="0">
 	<tr>
-			<th><?php echo $this->Paginator->sort('id'); ?></th>
+		<!--	<th><?php echo $this->Paginator->sort('id'); ?></th> -->
 			<th><?php echo $this->Paginator->sort('title'); ?></th>
 			<th><?php echo $this->Paginator->sort('body'); ?></th>
 			<th><?php echo $this->Paginator->sort('user_id'); ?></th>
@@ -10,9 +11,10 @@
 			<th><?php echo $this->Paginator->sort('updated'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
+
 	<?php foreach ($quotes as $quote): ?>
 	<tr>
-		<td><?php echo h($quote['Quote']['id']); ?>&nbsp;</td>
+		<!-- <td><?php echo h($quote['Quote']['id']); ?>&nbsp;</td> -->
 		<td><?php echo h($quote['Quote']['title']); ?>&nbsp;</td>
 		<td><?php echo h($quote['Quote']['body']); ?>&nbsp;</td>
 		<td>
@@ -27,7 +29,9 @@
 		</td>
 	</tr>
 <?php endforeach; ?>
+	
 	</table>
+	</div>
 	<p>
 	<?php
 	echo $this->Paginator->counter(array(

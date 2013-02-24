@@ -38,25 +38,28 @@
 	<div id="container">
 		<div id="header">
 			<h1><?php echo $this->Html->link('cakequote', '/'); ?></h1>
+			<h2>
+				<div id="ruconnect">
+					Bonjour
+					<?php echo $me['username']; ?>
+					<?php if($me['id']>0): ?>
+				</div>
+					<div id="connect"><?php echo $this->Html->link('lougout', '/users/logout') ?></div>
+				<?php else: ?>
+					<div id="connect"><?php echo $this->Html->link('login', '/users/login') ?></div>
+				<?php endif; ?>
+			</h2>
 		</div>
 		<div id="content">
-			<?php debug($me) ?>
-		<h2>
-			<?php echo $me['username']; ?>
-			<?php if($me['id']>0): ?>
-				<div><?php echo $this->Html->link('lougout', '/users/logout') ?></div>
-			<?php else: ?>
-				<div><?php echo $this->Html->link('login', '/users/login') ?></div>
-			<?php endif; ?>
-		</h2>
+
 			<?php echo $this->Session->flash(); ?>
 
 			<?php echo $this->fetch('content'); ?>
 		</div>
 		<div id="footer">
-			coded with love
+			coded with sex
 		</div>
 	</div>
-	<?php echo $this->element('sql_dump'); ?>
+	<!-- <?php echo $this->element('sql_dump'); ?> -->
 </body>
 </html>
